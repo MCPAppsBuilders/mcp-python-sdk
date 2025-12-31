@@ -15,6 +15,8 @@ from pydantic import (
 
 from mcp.types import Annotations, Icon
 
+from typing import Any
+
 
 class Resource(BaseModel, abc.ABC):
     """Base class for all resources."""
@@ -32,6 +34,7 @@ class Resource(BaseModel, abc.ABC):
     )
     icons: list[Icon] | None = Field(default=None, description="Optional list of icons for this resource")
     annotations: Annotations | None = Field(default=None, description="Optional annotations for the resource")
+    meta: dict[str, Any] | None = Field(default=None, description="Optional metadata for this resource")
 
     @field_validator("name", mode="before")
     @classmethod
