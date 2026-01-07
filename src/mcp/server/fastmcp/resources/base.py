@@ -1,7 +1,7 @@
 """Base classes and interfaces for FastMCP resources."""
 
 import abc
-from typing import Annotated
+from typing import Annotated, Any
 
 from pydantic import (
     AnyUrl,
@@ -14,8 +14,6 @@ from pydantic import (
 )
 
 from mcp.types import Annotations, Icon
-
-from typing import Any
 
 
 class Resource(BaseModel, abc.ABC):

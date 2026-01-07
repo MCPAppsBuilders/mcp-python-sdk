@@ -368,7 +368,10 @@ class Server(Generic[LifespanResultT, RequestT]):
                         content = create_content(data, None)
                     case Iterable() as contents:
                         contents_list = [
-                            create_content(content_item.content, content_item.mime_type, getattr(content_item, 'meta', None)) for content_item in contents
+                            create_content(
+                                content_item.content, content_item.mime_type, getattr(content_item, "meta", None)
+                            )
+                            for content_item in contents
                         ]
                         return types.ServerResult(
                             types.ReadResourceResult(
